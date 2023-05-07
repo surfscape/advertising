@@ -1,0 +1,17 @@
+{
+  "siteNav": [
+    {
+      "title": "Home",
+      "url": "/"
+    },
+    {
+      "title": "AdZone",
+      "url": "/adzone"
+    },
+    {
+      "title": "Join!",
+      "active": false,
+      "url": "/adzone/join"
+    }
+  ]
+}

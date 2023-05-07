@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="{{ site.lang }}">
+  <head>
+    {% include "basehead.njk" %}
+  </head>
+  <body>
+
+    {% if adzone == true %}
+      {% include "adzone/header.njk" %}
+    {% else %}
+      {% include "header.njk" %}
+    {% endif %}
+
+    {% block content %}{% endblock %}
+    {% include "footer.njk" %}
+  </body>
+</html>

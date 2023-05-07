@@ -1,0 +1,10 @@
+{% extends "./base.njk" %}
+
+{% block content %}
+    <main>
+        {%- include "sidebar.njk" -%}
+        <div role="section">
+            {{ content | safe}}
+        </div>
+    </main>
+{% endblock %}
