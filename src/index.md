@@ -3,7 +3,7 @@ layout: page.njk
 ---
 
 <a class="advert" href="/adzone">
-<img  src="/public/images/adverts/adzone_advert.png" alt="AdZone Advert">
+<img  src="public/images/adverts/adzone_advert.png" alt="AdZone Advert">
 </a>
 
 # Elevate your online presence
