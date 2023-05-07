@@ -26,6 +26,6 @@ module.exports = function (eleventyConfig) {
     markdownTemplateEngine: "njk",
     htmlTemplateEngine: ["njk", "html"],
     dataTemplateEngine: "njk",
-    baseurl: "/advertising/",
+    url: "https://surfscape.github.io/advertising/",
   };
 };
