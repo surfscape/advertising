@@ -26,6 +26,6 @@ module.exports = function (eleventyConfig) {
     markdownTemplateEngine: "njk",
     htmlTemplateEngine: ["njk", "html"],
     dataTemplateEngine: "njk",
-    pathPrefix: "/advertising/",
+    route: "/advertising",
   };
 };
