@@ -1,5 +1,6 @@
 const markdownIt = require("markdown-it");
 const markdownItAnc = require("markdown-it-anchor");
+const { EleventyHtmlBasePlugin } = require("@11ty/eleventy");
 
 module.exports = function (eleventyConfig) {
   eleventyConfig.addPassthroughCopy("src/public/");
@@ -14,6 +15,23 @@ module.exports = function (eleventyConfig) {
     tabIndex: false,
   });
   eleventyConfig.setLibrary("md", md);
+  eleventyConfig.addPlugin(EleventyHtmlBasePlugin, {
+    // The base URL: defaults to Path Prefix
+    baseHref: "/advertising",
+    // But you could use a full URL here too:
+    // baseHref: "http://example.com/"
+
+    // Comma separated list of output file extensions to apply
+    // our transform to. Use `false` to opt-out of the transform.
+    extensions: "html",
+
+    // Rename the filters
+    filters: {
+      base: "htmlBaseUrl",
+      html: "transformWithHtmlBase",
+      pathPrefix: "addPathPrefixToUrl",
+    },
+  });
   return {
     dir: {
       input: "src",
@@ -26,14 +44,5 @@ module.exports = function (eleventyConfig) {
     markdownTemplateEngine: "njk",
     htmlTemplateEngine: ["njk", "html"],
     dataTemplateEngine: "njk",
-    eleventyComputed: {
-      url: (data) => {
-        if (process.env.ELEVENTY_ENV === "production") {
-          return "https://surfscape.github.io/advertising/";
-        } else {
-          return "";
-        }
-      },
-    },
   };
 };

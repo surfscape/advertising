@@ -3,7 +3,7 @@ layout: page.njk
 ---
 
 <a class="advert" href="/adzone">
-<img  src="{{ url }}/public/images/adverts/adzone_advert.png" alt="AdZone Advert">
+<img  src="/public/images/adverts/adzone_advert.png" alt="AdZone Advert">
 </a>
 
 # Elevate your online presence
@@ -12,7 +12,7 @@ layout: page.njk
 
 SurfScape Advertising is the perfect way to elevate your online presence and bring more traffic to your NeoCities website.
 
-Our free and open source advertising solution, [AdZone]({{ url }}/adzone) is designed with people in mind, providing a privacy-respecting alternative to traditional advertising platforms without giving away your personal information.
+Our free and open source advertising solution, [AdZone](/adzone) is designed with people in mind, providing a privacy-respecting alternative to traditional advertising platforms without giving away your personal information.
 
 ## Support
 
