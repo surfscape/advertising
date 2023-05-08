@@ -14,26 +14,16 @@ module.exports = function (eleventyConfig) {
   md.use(markdownItAnc, {
     tabIndex: false,
   });
-  eleventyConfig.setLibrary("md", md);
-  if (process.env.ELEVENTY_ENV === "production") {
-    eleventyConfig.addPlugin(EleventyHtmlBasePlugin, {
-      // The base URL: defaults to Path Prefix
-      baseHref: "/advertising",
-      // But you could use a full URL here too:
-      // baseHref: "http://example.com/"
 
-      // Comma separated list of output file extensions to apply
-      // our transform to. Use `false` to opt-out of the transform.
-      extensions: "html",
+  eleventyConfig.addPlugin(EleventyHtmlBasePlugin, {
+    extensions: "html",
+    filters: {
+      base: "htmlBaseUrl",
+      html: "transformWithHtmlBase",
+      pathPrefix: "addPathPrefixToUrl",
+    },
+  });
 
-      // Rename the filters
-      filters: {
-        base: "htmlBaseUrl",
-        html: "transformWithHtmlBase",
-        pathPrefix: "addPathPrefixToUrl",
-      },
-    });
-  }
   return {
     dir: {
       input: "src",
@@ -46,5 +36,6 @@ module.exports = function (eleventyConfig) {
     markdownTemplateEngine: "njk",
     htmlTemplateEngine: ["njk", "html"],
     dataTemplateEngine: "njk",
+    pathPrefix: process.env.NODE_ENV === "production" ? "/advertising" : "",
   };
 };
