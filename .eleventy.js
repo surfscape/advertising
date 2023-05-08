@@ -15,23 +15,25 @@ module.exports = function (eleventyConfig) {
     tabIndex: false,
   });
   eleventyConfig.setLibrary("md", md);
-  eleventyConfig.addPlugin(EleventyHtmlBasePlugin, {
-    // The base URL: defaults to Path Prefix
-    baseHref: "/advertising",
-    // But you could use a full URL here too:
-    // baseHref: "http://example.com/"
+  if (process.env.ELEVENTY_ENV === "production") {
+    eleventyConfig.addPlugin(EleventyHtmlBasePlugin, {
+      // The base URL: defaults to Path Prefix
+      baseHref: "/advertising",
+      // But you could use a full URL here too:
+      // baseHref: "http://example.com/"
 
-    // Comma separated list of output file extensions to apply
-    // our transform to. Use `false` to opt-out of the transform.
-    extensions: "html",
+      // Comma separated list of output file extensions to apply
+      // our transform to. Use `false` to opt-out of the transform.
+      extensions: "html",
 
-    // Rename the filters
-    filters: {
-      base: "htmlBaseUrl",
-      html: "transformWithHtmlBase",
-      pathPrefix: "addPathPrefixToUrl",
-    },
-  });
+      // Rename the filters
+      filters: {
+        base: "htmlBaseUrl",
+        html: "transformWithHtmlBase",
+        pathPrefix: "addPathPrefixToUrl",
+      },
+    });
+  }
   return {
     dir: {
       input: "src",

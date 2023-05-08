@@ -57,8 +57,6 @@ header .service__title {
 
 header .header__title img {
   margin: auto 0;
-  width: 40px;
-  height: 40px;
 }
 
 header nav {
@@ -84,9 +82,10 @@ header nav a[aria-current="page"] {
 }
 
 header nav a:last-child {
-  font-weight: 600;
   margin-left: auto;
-  border-color: blueviolet;
+  border: none;
+  color: black;
+  background: var(--color-accent);
 }
 
 main {

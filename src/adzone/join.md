@@ -4,7 +4,7 @@ title: Join AdZone
 
 # Join AdZone
 
-To join SurfScape Advertising AdZone service you will need to fill the form below. No personal information is asked.
+To join SurfScape Advertising AdZone service you will need to fill the form below. While joining, you agree to our [Terms of Service](/terms-of-service) and [Privacy Policy](/privacy).
 
 <form action="https://formspree.io/f/xjvdllwz" method="POST" enctype="multipart/form-data">
   <fieldset>
