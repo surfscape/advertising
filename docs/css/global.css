@@ -182,3 +182,12 @@ footer,
 footer * {
   color: white;
 }
+
+@media only screen and (max-width: 40rem) {
+  main {
+    grid-template-columns: 1fr;
+  }
+  aside {
+    padding-bottom: var(--spacing);
+  }
+}

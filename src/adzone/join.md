@@ -8,7 +8,7 @@ To join SurfScape Advertising AdZone service you will need to fill the form belo
 
 ## Submissions are closed
 
-<!-- <form action="https://formspree.io/f/xjvdllwz" method="POST" enctype="multipart/form-data">
+<!-- <form>
   <fieldset>
     <legend>Website Information</legend>
 <div class="form--group">

@@ -5,7 +5,6 @@ const { EleventyHtmlBasePlugin } = require("@11ty/eleventy");
 module.exports = function (eleventyConfig) {
   eleventyConfig.addPassthroughCopy("src/public/");
   eleventyConfig.addPassthroughCopy("src/css/");
-  eleventyConfig.addPassthroughCopy("src/*.txt");
   eleventyConfig.addWatchTarget("src/css/");
   eleventyConfig.addWatchTarget("src/*/*.md/");
   const md = markdownIt({
