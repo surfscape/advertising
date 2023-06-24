@@ -1,0 +1,14 @@
+<header>
+    <span class="header__title">
+        <img src="/public/images/ss_advertising_adzone_40x40.png" alt="SurfScape Advertising AdZone Logo">
+        <div>
+            <span class="page__title">{{ site.title }}</span>
+            <span class="service__title">AdZone</span>
+        </div>
+    </span>
+    <nav>
+        {%- for siteNav in nav.siteNav -%}
+            <a href="{{ siteNav.url }}" {% if (siteNav.url != "/" and page.url.startsWith(siteNav.url)) or page.url == siteNav.url %}aria-current="page"{% endif %}>{{ siteNav.title }}</a>
+        {%- endfor -%}
+    </nav>
+</header>
