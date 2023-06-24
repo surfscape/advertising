@@ -1,38 +1,32 @@
-name: Deploy to GitHub Pages
-
+name: Deploy
 on:
   push:
     branches:
       - main
 
-concurrency:
-  group: deploy-to-github-pages
-  cancel-in-progress: true
-
 jobs:
   build:
     runs-on: ubuntu-latest
+
     steps:
       - uses: actions/checkout@v3
 
-      - name: Use Node.js
+      - name: Use Node.js current
         uses: actions/setup-node@v3
         with:
-          cache: "npm"
-          node-version: lts/*
-      - name: Install dependencies and build
+          node-version: current
+
+      - name: Setup
         run: |
           npm ci
-          npm run build
-
-      - name: Create artifact
-        uses: actions/upload-artifact@v3.1.2
+          npm run build:production
+      - name: Deploy
+        uses: peaceiris/actions-gh-pages@v3.8.0
         with:
-          name: static-site
-          path: public
-
-      - name: Deploy to GitHub Pages
-        uses: JamesIves/github-pages-deploy-action@4.1.4
-        with:
-          branch: gh-pages
-          folder: docs
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          #publish_dir is the folder on the docker instance which eleventy builds the pages to.
+          #it is not the docs folder in the repository
+          publish_dir: dist
+          #publish_branch is the branch in the repository.
+          #this is where you need to point GitHub pages
+          publish_branch: gh-pages
