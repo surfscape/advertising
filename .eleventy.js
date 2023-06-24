@@ -1,5 +1,6 @@
 const markdownIt = require("markdown-it");
 const markdownItAnc = require("markdown-it-anchor");
+const { EleventyHtmlBasePlugin } = require("@11ty/eleventy");
 
 module.exports = function (eleventyConfig) {
   eleventyConfig.addPassthroughCopy("src/public/");
@@ -12,6 +13,15 @@ module.exports = function (eleventyConfig) {
   md.use(markdownItAnc, {
     tabIndex: false,
   });
+  eleventyConfig.addPlugin(EleventyHtmlBasePlugin, {
+    extensions: "html",
+    filters: {
+      base: "htmlBaseUrl",
+      html: "transformWithHtmlBase",
+      pathPrefix: "addPathPrefixToUrl",
+    },
+  });
+
   return {
     dir: {
       input: "src",
